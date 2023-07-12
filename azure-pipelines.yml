@@ -5,7 +5,6 @@
 
 trigger:
 - master
-
 pool:
   vmImage: ubuntu-latest
 
@@ -19,3 +18,13 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+
+- task: FedRampFortifyOnDemandStatic@8
+  inputs:
+    FortifyProjects: '$(Build.ArtifactStagingDirectory)'
+    BSIToken: 'eyJ0ZW5hbnRJZCI6NjgsInRlbmFudENvZGUiOiJGcmFua2xpbkJhbmsiLCJyZWxlYXNlSWQiOjg2MjU2NSwicGF5bG9hZFR5cGUiOiJBTkFMWVNJU19QQVlMT0FEIiwiYXNzZXNzbWVudFR5cGVJZCI6Mjc0LCJ0ZWNobm9sb2d5VHlwZSI6IkpBVkEvSjJFRS9Lb3RsaW4iLCJ0ZWNobm9sb2d5VHlwZUlkIjo3LCJ0ZWNobm9sb2d5VmVyc2lvbiI6IjEuOCIsInRlY2hub2xvZ3lWZXJzaW9uSWQiOjEyLCJhdWRpdFByZWZlcmVuY2UiOiJBdXRvbWF0ZWQiLCJhdWRpdFByZWZlcmVuY2VJZCI6MiwiaW5jbHVkZVRoaXJkUGFydHkiOmZhbHNlLCJpbmNsdWRlT3BlblNvdXJjZUFuYWx5c2lzIjpmYWxzZSwicG9ydGFsVXJpIjoiaHR0cHM6Ly9hbXMuZm9ydGlmeS5jb20iLCJhcGlVcmkiOiJodHRwczovL2FwaS5hbXMuZm9ydGlmeS5jb20iLCJzY2FuUHJlZmVyZW5jZSI6IlN0YW5kYXJkIiwic2NhblByZWZlcmVuY2VJZCI6MX0='
+    APIAuthenticationType: '2'
+    Username: 'Christine.Chong'
+    PersonalAccessTokenSecret: 'ZkltNXJJT3dvJ0gxcGA2eDhaMndjY3BBPGhXV0Np0'
+    TenantID: 'FranklinBank'
+    EntitlementPreference: '1'
